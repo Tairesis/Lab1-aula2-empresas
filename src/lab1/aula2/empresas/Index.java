@@ -19,7 +19,7 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
         jGuardar.setVisible(false);
-        Empresa  empresa = new Empresa();
+        Empresa empresa = new Empresa();
     }
 
     /**
@@ -282,32 +282,34 @@ public class Index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
-        if ((jCEmpresa.equals("Seleccionar")) || (jTNombre.equals(""))
-                || (jTApellido.equals("")) || (jTSueldo.equals("")
-                || (jCCategoria.equals("Seleccionar")) || (jTDni1.equals("")))) {
+        String empresaValue = jCEmpresa.getSelectedItem().toString();
+        String nombreValue = jTNombre.getText();
+        String apellidoValue = jTApellido.getText();
+        String sueldoValue = jTSueldo.getText();
+        String categoriaValue = jCCategoria.getSelectedItem().toString();
+        String dniValue = jTDni1.getText();
 
+        if (empresaValue.equals("Seleccionar") || nombreValue.isEmpty()
+                || apellidoValue.isEmpty() || sueldoValue.isEmpty()
+                || categoriaValue.equals("Seleccionar") || dniValue.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Error, ingrese una empresa primero y luego ingrese todos los datos");
         } else {
             try {
-                int dni = Integer.parseInt(jTDni1.getText());
-                String nombre = jTNombre.getText();
-                String apellido = jTApellido.getText();
-                String empresa = jCEmpresa.getSelectedItem().toString();
-                String categoria = jCCategoria.getSelectedItem().toString();
-                double sueldo = Double.parseDouble(jTSueldo.getText());
-                
-                
-            }catch (Exception ex ){
-                JOptionPane.showMessageDialog(this, "Error inesperado, fijese que los datos esten correctos");
-                return;
+                int dni = Integer.parseInt(dniValue);
+                String nombre = nombreValue;
+                String apellido = apellidoValue;
+                String empresa = empresaValue;
+                String categoria = categoriaValue;
+                double sueldo = Double.parseDouble(sueldoValue);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Error inesperado, asegúrese de que los datos sean correctos");
             }
-
         }
     }//GEN-LAST:event_jGuardarActionPerformed
 
     private void jBMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMostrarActionPerformed
-         
-         empresa.mostrarEmpleados();
+
+        empresa.mostrarEmpleados();
     }//GEN-LAST:event_jBMostrarActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
