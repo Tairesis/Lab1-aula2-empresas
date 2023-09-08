@@ -30,6 +30,12 @@ public class Empresa {
         return empleados;
     }
 
+    public Empresa(String razonSocial, int cuit, ArrayList<Empleado> empleados) {
+        this.razonSocial = razonSocial;
+        this.cuit = cuit;
+        this.empleados = empleados;
+    }
+
     public Empresa() {
     }
     //----------------------------------------------------------------

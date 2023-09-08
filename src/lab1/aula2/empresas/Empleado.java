@@ -15,7 +15,16 @@ public class Empleado {
     int dni;
     String categoria;
     double sueldo;
-    Empresa empresa;
+    String empresa;
+
+    public Empleado(String nombre, String apellido, int dni, String categoria, String empresa, double sueldo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.categoria = categoria;
+        this.empresa = empresa;
+        this.sueldo= sueldo;
+    }
 
     public String getNombre() {
         return nombre;
@@ -57,11 +66,11 @@ public class Empleado {
         this.sueldo = sueldo;
     }
 
-    public Empresa getEmpresa() {
+    public String getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(Empresa empresa) {
+    public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
     

@@ -5,6 +5,8 @@
  */
 package lab1.aula2.empresas;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +18,13 @@ public class Index extends javax.swing.JFrame {
     /**
      * Creates new form Index
      */
+    public static ArrayList<Empleado> empresas = new ArrayList<>();
+    public static ArrayList<String> listaempresa = new ArrayList<>();
+
     public Index() {
         initComponents();
         jGuardar.setVisible(false);
-        Empresa empresa = new Empresa();
+
     }
 
     /**
@@ -52,12 +57,15 @@ public class Index extends javax.swing.JFrame {
         jTRazon = new javax.swing.JTextField();
         jTCUIT = new javax.swing.JTextField();
         jBCrear = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        Panel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestor de Empresas");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -175,7 +183,7 @@ public class Index extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jGuardar)
                     .addComponent(jBMostrar))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
@@ -226,7 +234,7 @@ public class Index extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
                 .addComponent(jBCrear)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +251,26 @@ public class Index extends javax.swing.JFrame {
                 .addComponent(jTCUIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBCrear)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        Panel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab1/aula2/empresas/img/fondo.jpg"))); // NOI18N
+        Panel.setText("jLabel11");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Empleado");
@@ -263,19 +290,24 @@ public class Index extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(11, 11, 11))
         );
 
         pack();
@@ -301,24 +333,47 @@ public class Index extends javax.swing.JFrame {
                 String empresa = empresaValue;
                 String categoria = categoriaValue;
                 double sueldo = Double.parseDouble(sueldoValue);
+                Empleado nuevo = new Empleado(nombre, apellido, dni, categoria, empresa, sueldo);
+                if (empresas.contains(nuevo)) {
+                    JOptionPane.showMessageDialog(this, "Ya existe un empleado con ese DNI");
+                } else {
+
+                    empresas.add(nuevo);
+                    JOptionPane.showMessageDialog(this, "Empleado agregado con éxito.");
+                    limpiar();
+                }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Error inesperado, asegúrese de que los datos sean correctos");
             }
+
         }
     }//GEN-LAST:event_jGuardarActionPerformed
 
     private void jBMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMostrarActionPerformed
+        Panel.removeAll();
+        Panel.repaint();
+        Mostrar mos = new Mostrar();
+        mos.setVisible(true);
+        Panel.add(mos);
+        
 
-        empresa.mostrarEmpleados();
     }//GEN-LAST:event_jBMostrarActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
 
-        String razonSocial = jTRazon.getText();
-        jCEmpresa.addItem(razonSocial);
-        jGuardar.setVisible(true);
         try {
+            String razonSocial = jTRazon.getText().toLowerCase();
             int cuit = Integer.parseInt(jTCUIT.getText());
+            if (listaempresa.contains(razonSocial)) {
+                JOptionPane.showMessageDialog(this, "La empresa introducida ya se encuentra en nuestra base de datos");
+            } else {
+                listaempresa.add(razonSocial);
+                jCEmpresa.addItem(razonSocial);
+                jGuardar.setVisible(true);
+                jTRazon.setText("");
+                jTCUIT.setText("");
+            }
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Error, ingrese un formato valido de CUIT");
         }
@@ -362,6 +417,7 @@ public class Index extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Panel;
     private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBMostrar;
     private javax.swing.JComboBox<String> jCCategoria;
@@ -383,6 +439,7 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTApellido;
     private javax.swing.JTextField jTCUIT;
     private javax.swing.JTextField jTDni1;
@@ -390,4 +447,13 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JTextField jTRazon;
     private javax.swing.JTextField jTSueldo;
     // End of variables declaration//GEN-END:variables
+    public void limpiar() {
+        jCEmpresa.setSelectedItem(1);
+        jTNombre.setText("");
+        jTApellido.setText("");
+        jTSueldo.setText("");
+        jCCategoria.setSelectedItem(1);
+        jTDni1.setText("");
+
+    }
 }
